@@ -1,0 +1,143 @@
+@import '~@payloadcms/ui/scss';
+
+.btn.list-selection__button {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0 0.75rem;
+  border: 1px solid hsl(240 5.9% 90%);
+  border-radius: 0.5rem;
+  background: hsl(0 0% 100%);
+  color: hsl(240 10% 3.9%);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px hsl(240 10% 3.9% / 0.05);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+
+  &:hover {
+    border-color: hsl(240 5.9% 82%);
+    background: hsl(240 4.8% 95.9%);
+    color: hsl(240 10% 3.9%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: hsl(240 5% 64.9%);
+    box-shadow:
+      0 1px 2px hsl(240 10% 3.9% / 0.05),
+      0 0 0 3px hsl(240 5% 64.9% / 0.35);
+  }
+
+  &:disabled,
+  &[disabled],
+  &[aria-disabled='true'] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Tombol edit */
+.btn.list-selection__button[aria-label*='Edit'],
+.btn.list-selection__button[title*='Edit'] {
+  border-color: hsl(221.2 83.2% 53.3% / 0.3);
+  color: hsl(221.2 83.2% 53.3%);
+
+  &:hover {
+    border-color: hsl(221.2 83.2% 53.3% / 0.45);
+    background: hsl(221.2 83.2% 53.3% / 0.08);
+    color: hsl(221.2 83.2% 53.3%);
+  }
+
+  &:focus-visible {
+    box-shadow:
+      0 1px 2px hsl(240 10% 3.9% / 0.05),
+      0 0 0 3px hsl(221.2 83.2% 53.3% / 0.25);
+  }
+}
+
+/* Tombol delete */
+.btn.list-selection__button[aria-label*='Delete'],
+.btn.list-selection__button[title*='Delete'],
+.btn.list-selection__button[aria-label*='Remove'],
+.btn.list-selection__button[title*='Remove'] {
+  border-color: hsl(0 84.2% 60.2% / 0.3);
+  color: hsl(0 84.2% 60.2%);
+
+  &:hover {
+    border-color: hsl(0 84.2% 60.2% / 0.45);
+    background: hsl(0 84.2% 60.2% / 0.08);
+    color: hsl(0 84.2% 60.2%);
+  }
+
+  &:focus-visible {
+    box-shadow:
+      0 1px 2px hsl(240 10% 3.9% / 0.05),
+      0 0 0 3px hsl(0 84.2% 60.2% / 0.25);
+  }
+}
+
+/* Dark mode admin */
+html[data-theme='dark'] {
+  .btn.list-selection__button {
+    border-color: hsl(240 3.7% 25%);
+    background: hsl(240 10% 3.9%);
+    color: hsl(0 0% 98%);
+    box-shadow: none;
+
+    &:hover {
+      border-color: hsl(240 3.7% 32%);
+      background: hsl(240 3.7% 15.9%);
+      color: hsl(0 0% 98%);
+    }
+
+    &:focus-visible {
+      border-color: hsl(240 4.9% 83.9%);
+      box-shadow: 0 0 0 3px hsl(240 4.9% 83.9% / 0.25);
+    }
+  }
+
+  .btn.list-selection__button[aria-label*='Edit'],
+  .btn.list-selection__button[title*='Edit'] {
+    border-color: hsl(217.2 91.2% 59.8% / 0.35);
+    color: hsl(217.2 91.2% 70%);
+
+    &:hover {
+      border-color: hsl(217.2 91.2% 59.8% / 0.5);
+      background: hsl(217.2 91.2% 59.8% / 0.12);
+      color: hsl(217.2 91.2% 75%);
+    }
+  }
+
+  .btn.list-selection__button[aria-label*='Delete'],
+  .btn.list-selection__button[title*='Delete'],
+  .btn.list-selection__button[aria-label*='Remove'],
+  .btn.list-selection__button[title*='Remove'] {
+    border-color: hsl(0 72.2% 50.6% / 0.35);
+    color: hsl(0 84.2% 70%);
+
+    &:hover {
+      border-color: hsl(0 72.2% 50.6% / 0.5);
+      background: hsl(0 72.2% 50.6% / 0.12);
+      color: hsl(0 84.2% 75%);
+    }
+  }
+}
