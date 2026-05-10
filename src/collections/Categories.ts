@@ -1,3 +1,4 @@
+import { formatSlug } from '@/lib/utils'
 import { CollectionConfig } from 'payload'
 
 export const Categories: CollectionConfig = {
@@ -7,6 +8,16 @@ export const Categories: CollectionConfig = {
   },
   access: {
     read: () => true,
+  },
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        if (data?.name && !data?.slug) {
+          data.slug = formatSlug(data.name)
+        }
+        return data
+      },
+    ],
   },
   fields: [
     {
