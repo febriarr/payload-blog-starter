@@ -1,67 +1,247 @@
-# Payload Blank Template
+# Payload Blog Starter
 
-This template comes configured with the bare minimum to get started on anything you need.
+Exploring Payload CMS by building a modern blog with Next.js and PostgreSQL.
 
-## Quick start
+---
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+## About
 
-## Quick Start - local setup
+This repository is a learning and exploration project for Payload CMS. The goal is to understand how Payload works by building a real blog template with a modern stack.
 
-To spin up this template locally, follow these steps:
+### Tech Stack
 
-### Clone
+- Payload CMS 3
+- Next.js App Router
+- PostgreSQL
+- pnpm
+- Tailwind CSS
+- shadcn/ui
+- Lexical rich text editor
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+---
 
-### Development
+## Features
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URL` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+- Payload admin panel
+- PostgreSQL database adapter
+- Blog posts collection
+- Categories collection
+- Tags collection
+- Media uploads
+- Author relationship
+- Draft and publish workflow
+- Auto-generated slug
+- Auto-filled published date
+- SEO metadata fields
+- Blog listing page
+- Blog detail page
+- Rich text rendering
+- Tailwind Typography for article content
+- Small admin UI customization
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+---
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+## Getting Started
 
-#### Docker (Optional)
+### Prerequisites
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+Make sure you have installed:
 
-To do so, follow these steps:
+```bash
+node -v
+pnpm -v
+```
 
-- Modify the `MONGODB_URL` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URL` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+> This project uses **pnpm** as the package manager.
 
-## How it works
+---
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+## Installation
 
-### Collections
+Install dependencies:
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+```bash
+pnpm install
+```
 
-- #### Users (Authentication)
+Create your environment file:
 
-  Users are auth-enabled collections that have access to the admin panel.
+```bash
+cp .env.example .env
+```
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/3.x/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
+Then update the database connection in `.env`:
 
-- #### Media
+```env
+DATABASE_URL=postgres://postgres:<your-password>@localhost:5432/learn_payload
+PAYLOAD_SECRET=your-secret-key
+```
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+Adjust the username, password, host, port, and database name based on your local PostgreSQL setup.
 
-### Docker
+---
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+## Development
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+Start the development server:
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+```bash
+pnpm dev
+```
 
-## Questions
+Open the application:
 
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+```txt
+http://localhost:3000
+```
+
+Open the Payload admin panel:
+
+```txt
+http://localhost:3000/admin
+```
+
+On the first visit, create your first admin user.
+
+---
+
+## Project Structure
+
+```txt
+src/
+├─ app/
+│  ├─ (frontend)/
+│  │  ├─ blog/
+│  │  │  ├─ [slug]/
+│  │  │  └─ page.tsx
+│  │  ├─ layout.tsx
+│  │  └─ styles.css
+│  └─ (payload)/
+├─ collections/
+│  ├─ Categories.ts
+│  ├─ Media.ts
+│  ├─ Posts.ts
+│  ├─ Tags.ts
+│  └─ Users.ts
+├─ components/
+├─ lib/
+└─ payload.config.ts
+```
+
+---
+
+## Collections
+
+### Users
+
+Auth-enabled users that can access the Payload admin panel. Users can also be used as post authors.
+
+### Media
+
+Upload-enabled collection for images and other media assets.
+
+### Posts
+
+Main blog content collection.
+
+Includes:
+
+- title
+- slug
+- excerpt
+- hero image
+- content
+- category
+- tags
+- author
+- published date
+- SEO metadata
+- draft/publish status
+
+### Categories
+
+Used to group posts by main topic.
+
+Example:
+
+- Tutorial
+- News
+- Opinion
+
+### Tags
+
+Used to label posts with multiple topics.
+
+Example:
+
+- Payload
+- Next.js
+- PostgreSQL
+
+---
+
+## Useful Scripts
+
+Start development server:
+
+```bash
+pnpm dev
+```
+
+Build the project:
+
+```bash
+pnpm build
+```
+
+Start production server:
+
+```bash
+pnpm start
+```
+
+Generate Payload types:
+
+```bash
+pnpm generate:types
+```
+
+Generate Payload import map:
+
+```bash
+pnpm generate:importmap
+```
+
+Run lint:
+
+```bash
+pnpm lint
+```
+
+---
+
+## Learning Goals
+
+This project is mainly created to learn and explore:
+
+- how Payload CMS collections work
+- how relationships work in Payload
+- how Payload stores rich text content
+- how to use Payload with PostgreSQL
+- how to query Payload data in Next.js server components
+- how to build frontend pages from CMS content
+- how draft and publish workflows work
+- how to customize Payload admin styles
+- how to structure a reusable blog starter
+
+---
+
+## Notes
+
+This project is still part of an exploration process. Some implementation details may change as I continue learning Payload CMS and improving the blog template.
+
+---
+
+## License
+
+MIT
