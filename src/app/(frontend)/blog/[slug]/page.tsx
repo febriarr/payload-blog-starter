@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 
 import config from '@/payload.config'
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { RichText } from '@/components/ui/rich-text'
 import { Metadata } from 'next'
 
 type Args = {

@@ -122,3 +122,42 @@
 .container {
   @apply w-full mx-auto max-w-6xl px-4;
 }
+
+.prose pre {
+  @apply bg-background! p-4 md:p-8 m-0!;
+}
+
+/* globals.css */
+.prose {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--foreground));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--primary));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-pre-code: hsl(var(--foreground));
+  --tw-prose-pre-bg: hsl(var(--muted));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+}
+
+.dark .shiki,
+.shiki {
+  --shiki-color-text: var(--color-muted-foreground);
+  --shiki-color-background: var(--color-muted);
+  --shiki-token-constant: #52a8ff;
+  --shiki-token-string: #99d52a;
+  --shiki-token-comment: #a0a0a0;
+  --shiki-token-keyword: #f76e99;
+  --shiki-token-parameter: #f0a14f;
+  --shiki-token-function: #c77dff;
+  --shiki-token-string-expression: #99d52a;
+  --shiki-token-punctuation: var(--color-muted-foreground);
+  --shiki-token-link: #99d52a;
+}

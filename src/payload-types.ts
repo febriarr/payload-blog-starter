@@ -458,6 +458,18 @@ export interface CollectionsWidget {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeBlock".
+ */
+export interface CodeBlock {
+  filename?: string | null;
+  language?: ('typescript' | 'tsx' | 'javascript' | 'jsx' | 'css' | 'html' | 'bash' | 'json' | 'sql' | 'python') | null;
+  code: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'code';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
